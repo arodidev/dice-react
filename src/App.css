@@ -1,0 +1,98 @@
+body{
+  background-color: #03256C;
+}
+.page-container{
+  position: relative; /* or fixed, depending on your layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  left: 325px;
+  top: 60px;
+  width: 800px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.947);
+  border-radius: 10px;
+}
+
+.congrats-div{
+  background-color: rgb(174, 106, 22);
+  display: flex;
+  justify-content: center;
+}
+
+.title-div{
+  display: flex;
+  justify-content: center;
+  font-family: 'Chivo Mono', monospace;
+  /* background-color: aquamarine; */
+  padding: 40px 0px 0px 0px;
+}
+
+.die-div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color:#06BEE1;
+  width: 300px;
+  padding: 20px 0px 20px 0px;
+  border-radius: 10px;
+  box-shadow: 5px 6.57447px 6.57447px rgba(0, 0, 0, 0.1);
+
+}
+.buttons-div{
+  /* background-color: rgb(104, 149, 13); */
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.roll-btn {
+  display: inline-block;
+  background-color: #1768AC;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 15px;
+}
+
+.roll-btn:hover {
+  background-color: #06BEE1;
+}
+
+.title {
+  color: black;
+}
+
+.one-die {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 6.57447px 6.57447px rgba(0, 0, 0, 0.1);
+  /* flex-basis: 30%; */
+  ;
+}
+
+.instructions-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 80px 0px 100px;
+  font-family: 'Chivo Mono', monospace;
+  /* background-color: aqua; */
+}
+
+.congrats {
+}
