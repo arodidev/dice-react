@@ -89,8 +89,8 @@ function App() {
         </div>
         <div className="instructions-div">
           <h2>
-            Click on a die to hold it, then click the roll button to hold the other dice. <br/>
-            Continue until all the dice held are the same number, then the game will be over...
+            Click on a number to hold, then click the roll button to roll the other dice. <br/>
+            Continue until all the dice held are the same number to complete the game...
           </h2>
         </div>
       
