@@ -7,7 +7,7 @@ function App() {
   const [dice, setDice] = React.useState([
     {
       id: 0,
-      value: "Click To Start",
+      value: "click to start",
       held: false,
     },
   ]);
