@@ -11,7 +11,7 @@ function App() {
       held: false,
     },
   ]);
-
+  const [count, setCount] = React.useState(0)
   const [gameOver, setGameOver] = React.useState(false);
 
   React.useEffect(() => {
@@ -77,6 +77,26 @@ function App() {
     );
   });
 
+  const updateCount = () =>{
+    setCount((count)=>{
+      return count + 1
+    })
+  }
+
+  const rollClicker = () => {
+    rollDice()
+    updateCount()
+  }
+
+  const resetCount = () =>{
+    setCount(0)
+  }
+
+  const rollReset = () => {
+    newDiceArray()
+    resetCount()
+  }
+
   return (
       <div className="page-container">   
 
@@ -101,16 +121,16 @@ function App() {
       <div className="buttons-div">
         <button 
           className="roll-btn" 
-          onClick={rollDice}
-          disabled = {dice.length === 1 ? true: false}
-          style = {dice.length === 1 ? {backgroundColor: '#808080'}:{backgroundColor: '#1768AC'}}
+          onClick={rollClicker}
+          disabled = {dice.length === 1 || gameOver === true ? true: false}
+          style = {dice.length === 1 || gameOver === true ? {backgroundColor: '#808080'}:{backgroundColor: '#1768AC'}}
         >
           Roll
         </button>
 
         <button 
-          className="roll-btn" 
-          onClick={newDiceArray}
+          className="roll-btn reset-game" 
+          onClick={rollReset}
           disabled = {dice.length === 1 ? true: false}
           style = {dice.length === 1 ? {backgroundColor: '#808080'}:{backgroundColor: '#1768AC'}}
         >
@@ -118,7 +138,9 @@ function App() {
           Reset game!
         </button>
       </div>
-      
+      <div className="counter">
+        <h2>counter: {count}</h2>
+      </div>
       </div>
   );
 }
