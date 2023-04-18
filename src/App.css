@@ -72,6 +72,7 @@ body{
 .one-die {
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
   border: 2px solid black;
   width: 40px;
@@ -95,4 +96,5 @@ body{
 }
 
 .congrats {
+  font-family: 'Chivo Mono', monospace;
 }

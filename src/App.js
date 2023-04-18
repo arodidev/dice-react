@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
 import Die from "./components/Die";
+import Confetti from "react-confetti"
 
 function App() {
   const [dice, setDice] = React.useState([
     {
       id: 0,
-      value: "Die",
+      value: "click to start",
       held: false,
     },
   ]);
@@ -15,16 +16,14 @@ function App() {
 
   React.useEffect(() => {
     const checkValues = dice.every((eachObject) => {
-      return dice[0].value === eachObject.value;
+      return dice.length > 1 && dice[0].value === eachObject.value;
     });
 
     const checkIfHeld = dice.every((eachObject) => {
-      return eachObject.held === true;
+      return dice.length > 1 && eachObject.held === true;
     });
 
-    (checkIfHeld && checkValues)
-      ? setGameOver((gameOver) => !gameOver)
-      : setGameOver((gameOver) => gameOver);
+    checkIfHeld && checkValues ? setGameOver(true) : setGameOver(false);
   }, [dice]);
 
   //This function creates new objects to be added to state
@@ -73,6 +72,7 @@ function App() {
         key={eachObject.id}
         {...eachObject}
         hold={() => holdDie(eachObject.id)}
+        click = {() => newDiceArray()}
       />
     );
   });
@@ -81,7 +81,7 @@ function App() {
       <div className="page-container">   
 
         <div className="congrats-div">
-        {/* {gameOver && <h1 className="congrats"> Congratulations on completing the game!!</h1>} */}
+        {gameOver && <Confetti />}
         </div>  
         
         <div className="title-div">
@@ -89,8 +89,8 @@ function App() {
         </div>
         <div className="instructions-div">
           <h2>
-            Click on a die to hold it, then click the roll button to hold the other dice. <br/>
-            Continue until all the dice held are the same number, then the game will be over...
+            Click on a number to hold, then click the roll button to roll the other dice. <br/>
+            Continue until all the dice held are the same number to complete the game...
           </h2>
         </div>
       
@@ -99,12 +99,23 @@ function App() {
       </div>
 
       <div className="buttons-div">
-        <button className="roll-btn" onClick={rollDice}>
+        <button 
+          className="roll-btn" 
+          onClick={rollDice}
+          disabled = {dice.length === 1 ? true: false}
+          style = {dice.length === 1 ? {backgroundColor: '#808080'}:{backgroundColor: '#1768AC'}}
+        >
           Roll
         </button>
 
-        <button className="roll-btn" onClick={newDiceArray}>
-          Start game!
+        <button 
+          className="roll-btn" 
+          onClick={newDiceArray}
+          disabled = {dice.length === 1 ? true: false}
+          style = {dice.length === 1 ? {backgroundColor: '#808080'}:{backgroundColor: '#1768AC'}}
+        >
+
+          Reset game!
         </button>
       </div>
       
